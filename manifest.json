@@ -10,8 +10,14 @@
         "persistent": false
     },
 
-    "content_scripts": [{
-        "js": [ "content.js" ],
-        "matches": [ "https://whm.accenture.com/mytim/secure/punchClock" ]
-    }]
+    "content_scripts": [
+        {
+            "js": [ "content.js" ],
+            "matches": [ "https://whm.accenture.com/mytim/secure/punchClock" ]
+        },
+        {
+            "js": ["content2.js"],
+            "matches": [ "https://whm.accenture.com/mytim/secure/punchClock/confirm" ]
+        }
+    ]
 }
