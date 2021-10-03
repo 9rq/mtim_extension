@@ -3,7 +3,7 @@
 
     "name": "myTIM extension",
     "description": "for myTIM",
-    "version": "1.0",
+    "version": "1.1",
 
     "background": {
         "scripts": [ "background.js" ],
@@ -12,11 +12,11 @@
 
     "content_scripts": [
         {
-            "js": [ "content.js" ],
+            "js": [ "punchClock_mod.js" ],
             "matches": [ "https://whm.accenture.com/mytim/secure/punchClock" ]
         },
         {
-            "js": ["content2.js"],
+            "js": ["confirm_mod.js"],
             "matches": [ "https://whm.accenture.com/mytim/secure/punchClock/confirm" ]
         }
     ]

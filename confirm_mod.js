@@ -1,12 +1,18 @@
-const body = document.querySelector('html');
-const panel = document.createElement('div');
-
 const table = document.getElementById('punchclocktable');
-const indices= table.querySelectorAll('.celda_encabezado_general');
+const tbody = table.getElementsByTagName('tbody').item(0);
+const lines = tbody.getElementsByTagName('tr');
+const indices = document.querySelectorAll('.celda_encabezado_general');
 
-alert(indices.length);
+let times = ['09:00', '12:00', '12:00', '13:00', '13:00', '18:00']
 
-for (let i = 0; i < indices.length; i++){
-    indices[i].setAttribute('onclick', 'alert("aaa")');
+
+function handler(i){
+    for (let j=0; j < 6; j++){
+        lines.item(j).getElementsByTagName('input').item(i).setAttribute('value', times[j]);
+    }
 }
 
+Array.from(indices).map((m,i)=>{
+    m.addEventListener('click',()=>{
+    });
+});
