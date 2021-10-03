@@ -14,5 +14,6 @@ function handler(i){
 
 Array.from(indices).map((m,i)=>{
     m.addEventListener('click',()=>{
+        handler(i);
     });
 });
