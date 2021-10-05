@@ -29,6 +29,8 @@ git clone https://github.com/9rq/mtim_extension.git
     - 指定時刻にmtimを起動
     - 自動打刻
     - 自動入力のデフォルト値の設定
+    - storageの初期値
+    - 削除ボタン
 
 ## Log
     1. mtim内に時計を表示
@@ -45,5 +47,8 @@ git clone https://github.com/9rq/mtim_extension.git
             - backgroundに条件を追加
         - 表示するためのpopup.(html|css|js)の作成
             - storageによりsave, loadの実装
+
+    4. 削除ボタンの追加
+        - 時刻のinputの横に削除ボタンを追加
 
 ## Issues

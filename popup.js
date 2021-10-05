@@ -6,11 +6,18 @@ const save_button = document.getElementById('save_button');
 function append(val){
     var newTr = document.createElement('tr');
     var newInput = document.createElement('input');
+    var newDelButton = document.createElement('span');
     newInput.setAttribute('value',val);
     newInput.setAttribute('type', 'text');
     newInput.setAttribute('class', 'time');
+    newDelButton.setAttribute('class', 'delete_button');
+    newDelButton.textContent = ' x ';
     newTr.appendChild(newInput);
+    newTr.appendChild(newDelButton);
     table.appendChild(newTr);
+    newDelButton.addEventListener('click', e=>{
+        del(e);
+    });
 }
 
 function save(){
@@ -25,6 +32,15 @@ function save(){
     window.close();
 }
 
+function del(element){
+    parent_element = element.currentTarget.parentElement;
+    while (parent_element.firstChild) {
+        parent_element.removeChild(parent_element.firstChild);
+    }
+    parent_element.remove();
+}
+
+
 // add blank box
 add_button.addEventListener('click', e=>{
     append('');
@@ -33,10 +49,15 @@ add_button.addEventListener('click', e=>{
 save_button.addEventListener('click', save);
 
 
-// show values
+// show times
 chrome.storage.local.get(["times"],(result)=>{
-    let values = result.times;
-    for (let i =0; i < values.length; i++){
-        append(values[i]);
+    let times = result.times;
+    if (! times){
+        times = ['9:00', '12:00', '12:00', '13:00', '13:00', '18:00'];
+        chrome.storage.local.set({"times": times});
+    }
+
+    for (let i =0; i < times.length; i++){
+        append(times[i]);
     }
 });
