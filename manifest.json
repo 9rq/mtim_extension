@@ -17,7 +17,15 @@
         },
         {
             "js": ["confirm_mod.js"],
-            "matches": [ "https://whm.accenture.com/mytim/secure/punchClock/confirm" ]
+            "matches": [ "https://whm.accenture.com/mytim/secure/punchClock/confirm", "https://developer.mozilla.org/*"]
         }
+    ],
+    "page_action": {
+        "browser_style": true,
+        "default_title": "setting",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+    "storage", "tabs", "declarativeContent"
     ]
 }
