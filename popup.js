@@ -11,7 +11,7 @@ function append(val){
     newInput.setAttribute('type', 'text');
     newInput.setAttribute('class', 'time');
     newDelButton.setAttribute('class', 'delete_button');
-    newDelButton.textContent = ' x ';
+    newDelButton.textContent = ' × ';
     newTr.appendChild(newInput);
     newTr.appendChild(newDelButton);
     table.appendChild(newTr);
@@ -52,13 +52,6 @@ save_button.addEventListener('click', save);
 // show times
 chrome.storage.local.get(["times"],(result)=>{
     let times = result.times;
-
-    // set initial value
-    if (times === undefined){
-        times = ['9:00', '12:00', '12:00', '13:00', '13:00', '18:00'];
-        chrome.storage.local.set({"times": times});
-    }
-
     for (let i =0; i < times.length; i++){
         append(times[i]);
     }

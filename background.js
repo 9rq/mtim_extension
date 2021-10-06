@@ -17,3 +17,12 @@ new Promise(resolve => {
     actions: [new chrome.declarativeContent.ShowPageAction()]
   }])
 })
+
+
+function initialize(){
+    chrome.storage.local.clear();
+    chrome.storage.local.set({'times': ['09:00', '12:00', '12:00', '13:00', '13:00', '18:00']});
+    console.log('initialized storage.local');
+}
+
+chrome.runtime.onInstalled.addListener(initialize);
