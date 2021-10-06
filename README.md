@@ -51,4 +51,7 @@ git clone https://github.com/9rq/mtim_extension.git
     4. 削除ボタンの追加
         - 時刻のinputの横に削除ボタンを追加
 
+    5. 初期値の設定
+        - 最初にgetする際にエラーが起きないように
+
 ## Issues

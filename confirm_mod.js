@@ -9,7 +9,7 @@ function handler(i){
         let times = result.times;
 
         // set initial value
-        if (! times){
+        if (times === undefined){
             times = ['9:00', '12:00', '12:00', '13:00', '13:00', '18:00'];
             chrome.storage.local.set({"times": times});
         }
