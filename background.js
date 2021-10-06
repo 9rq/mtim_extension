@@ -27,5 +27,5 @@ function initialize(){
         }
     })
 }
-
-chrome.runtime.onInstalled.addListener(initialize);
+// it won't work :(
+//chrome.runtime.onInstalled.addListener(initialize);
