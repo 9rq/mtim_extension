@@ -11,6 +11,7 @@ function append(val){
     newInput.setAttribute('type', 'text');
     newInput.setAttribute('class', 'time');
     newDelButton.setAttribute('class', 'delete_button');
+    newDelButton.setAttribute('title', 'delete');
     newDelButton.textContent = ' × ';
     newTr.appendChild(newInput);
     newTr.appendChild(newDelButton);
