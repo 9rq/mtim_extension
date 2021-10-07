@@ -2,6 +2,18 @@ const table = document.getElementById('setting_table');
 const add_button = document.getElementById('add_button');
 const save_button = document.getElementById('save_button');
 
+function saveLocalStorage(times){
+    window.localStorage.setItem('times',times.toString());
+}
+
+function loadLocalStorage(){
+    let times = window.localStorage.getItem('times');
+    if (times !== null){
+        return times.split(',');
+    }else{
+        return times;
+    }
+}
 
 function append(val){
     var newTr = document.createElement('tr');
@@ -29,7 +41,7 @@ function save(){
     for (let i = 0; i< time_elements.length;i++){
         times.push(time_elements[i].value);
     }
-    chrome.storage.local.set({"times": times});
+    saveLocalStorage(times);
     window.close();
 }
 
@@ -51,9 +63,12 @@ save_button.addEventListener('click', save);
 
 
 // show times
-chrome.storage.local.get(["times"],(result)=>{
-    let times = result.times;
-    for (let i =0; i < times.length; i++){
-        append(times[i]);
-    }
-});
+let times = loadLocalStorage();
+if (times === null){
+    console.log('init localStorage');
+    times = ['09:00', '12:00', '12:00', '13:00', '13:00', '18:00'];
+    saveLocalStorage(times);
+}
+for (let i =0; i < times.length; i++){
+    append(times[i]);
+}

@@ -58,6 +58,9 @@ git clone https://github.com/9rq/mtim_extension.git
         - storageによる実装は困難か
         - 自分のPCでは動作確認完了
 
+    7. chrome.storage→window.localStorage
+        - ストレージの変更
+
 ## Issues
     1. storageが使えない
         - DLP softwareが原因の可能性
