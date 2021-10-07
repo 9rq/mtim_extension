@@ -54,4 +54,11 @@ git clone https://github.com/9rq/mtim_extension.git
     5. 初期値の設定
         - 最初にgetする際にエラーが起きないように
 
+    6. Issue#1が発覚
+        - storageによる実装は困難か
+        - 自分のPCでは動作確認完了
+
 ## Issues
+    1. storageが使えない
+        - DLP softwareが原因の可能性
+        - [stack overflow](https://stackoverflow.com/questions/65330640/chrome-extension-chrome-storage-calls-fail-due-to-io-error-000001-dbtmp-c)

@@ -52,13 +52,7 @@ save_button.addEventListener('click', save);
 
 // show times
 chrome.storage.local.get(["times"],(result)=>{
-    let times;
-    if (!result.hasOwnProperty('times')){
-        times = ['09:00', '12:00', '12:00', '13:00', '13:00', '18:00'];
-        chrome.storage.local.set({'times': times});
-    }else{
-        times = result.times;
-    }
+    let times = result.times;
     for (let i =0; i < times.length; i++){
         append(times[i]);
     }
