@@ -74,3 +74,6 @@ git clone https://github.com/9rq/mtim_extension.git
         - callbackを指定して受け取ることはできている
         - loadLocalStorage関数の戻り値が上手く行かない
 
+    3. ~~puchClockでpopupが正常に動作しない~~
+        - backgroundでpopupのアクセスに制限をかけることで対応
+
