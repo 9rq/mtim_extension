@@ -1,3 +1,4 @@
+// to decide in which website popup is available
 new Promise(resolve => {
   chrome.runtime.onInstalled.addListener(resolve)
 }).then(() => {
@@ -17,14 +18,3 @@ new Promise(resolve => {
     actions: [new chrome.declarativeContent.ShowPageAction()]
   }])
 })
-
-
-function initialize(){
-    console.log('initialized storage.local');
-    if (window.localStorage.getItem('times') === null){
-        console.log('init localStorage');
-        window.localStorage.setItem('times',['09:00', '12:00', '12:00', '13:00', '13:00', '18:00']);
-    }
-}
-// it won't work :(
-chrome.runtime.onInstalled.addListener(initialize);
