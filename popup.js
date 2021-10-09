@@ -16,12 +16,16 @@ async function loadLocalStorage(){
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs)=>{
         chrome.tabs.sendMessage(tabs[0].id,{"type": "load"},
         (response)=>{
-            window.localStorage.setItem('times', response.times.toString());
+            let times = ['09:00', '12:00', '12:00', '13:00', '13:00', '18:00'];
+            if (response.times !== null){
+                times = response.times;
+            }
+            window.localStorage.setItem('times', times.toString());
         });
     });
     // compromise plan
     // wait till response
-    await sleep(100);
+    await sleep(200);
     return window.localStorage.getItem('times').split(',');
 }
 
