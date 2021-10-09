@@ -15,11 +15,10 @@ function loadLocalStorage(){
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs)=>{
         chrome.tabs.sendMessage(tabs[0].id,{"type": "load"},
         (response)=>{
-            times = response.times;
-            alert(times);
+            window.localStorage.setItem('times', response.times);
         });
     });
-    return times;
+    return window.localStorage.getItem('times').split(',');
 }
 
 // save button
