@@ -2,6 +2,8 @@ const table = document.getElementById('setting_table');
 const add_button = document.getElementById('add_button');
 const save_button = document.getElementById('save_button');
 
+const sleep = ms => new Promise(res => setTimeout(res, ms));
+
 // save to content script
 function saveLocalStorage(times){
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs)=>{
@@ -10,14 +12,16 @@ function saveLocalStorage(times){
 }
 
 // load from content script
-function loadLocalStorage(){
-    let times = ['8888'];
+async function loadLocalStorage(){
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs)=>{
         chrome.tabs.sendMessage(tabs[0].id,{"type": "load"},
         (response)=>{
-            window.localStorage.setItem('times', response.times);
+            window.localStorage.setItem('times', response.times.toString());
         });
     });
+    // compromise plan
+    // wait till response
+    await sleep(100);
     return window.localStorage.getItem('times').split(',');
 }
 
@@ -69,7 +73,8 @@ save_button.addEventListener('click', save);
 
 
 // show times
-let times = loadLocalStorage();
-for (let i =0; i < times.length; i++){
-    append(times[i]);
-}
+loadLocalStorage().then((times)=>{
+    for (let i =0; i < times.length; i++){
+        append(times[i]);
+    }
+});
