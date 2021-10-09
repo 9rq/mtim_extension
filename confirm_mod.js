@@ -38,11 +38,10 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     switch (request.type){
         case "save":
             saveLocalStorage(request.times);
-            break;
+            return false;
         case "load":
             let times = loadLocalStorage();
             sendResponse({"times": times});
             return true;
-            break;
     }
 });
