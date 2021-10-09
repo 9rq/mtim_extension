@@ -51,8 +51,9 @@ function append(val){
     var newInput = document.createElement('input');
     var newDelButton = document.createElement('span');
     newInput.setAttribute('value',val);
-    newInput.setAttribute('type', 'text');
+    newInput.setAttribute('type', 'time');
     newInput.setAttribute('class', 'time');
+    newInput.setAttribute('maxlength', '5');
     newDelButton.setAttribute('class', 'delete_button');
     newDelButton.setAttribute('title', 'delete');
     newDelButton.textContent = ' × ';
