@@ -60,8 +60,17 @@ git clone https://github.com/9rq/mtim_extension.git
 
     7. chrome.storage→window.localStorage
         - ストレージの変更
+        - content scriptとpopupでlocalStorageを共有できない
+
+    8. メッセージングによるlocalStorageの共有
+        - popupには保持せず、content scriptへリクエスト
 
 ## Issues
     1. storageが使えない
         - DLP softwareが原因の可能性
         - [stack overflow](https://stackoverflow.com/questions/65330640/chrome-extension-chrome-storage-calls-fail-due-to-io-error-000001-dbtmp-c)
+
+    2. Log#8 loadリクエストが動かない
+        - callbackを指定して受け取ることはできている
+        - loadLocalStorage関数の戻り値が上手く行かない
+
