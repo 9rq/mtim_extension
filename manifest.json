@@ -17,7 +17,7 @@
         },
         {
             "js": ["src/confirm_mod.js"],
-            "matches": [ "https://whm.accenture.com/mytim/secure/punchClock/confirm"]
+            "matches": [ "https://whm.accenture.com/mytim/secure/punchClock/confirm", "https://developer.mozilla.org/*"]
         }
     ],
     "page_action": {
