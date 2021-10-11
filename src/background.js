@@ -10,8 +10,7 @@ new Promise(resolve => {
     conditions: [
       new chrome.declarativeContent.PageStateMatcher({
         pageUrl: {
-          hostEquals: 'whm.accenture.com',
-          pathEquals: '/mytim/secure/punchClock/confirm',
+          hostEquals: 'developer.mozilla.org',
           schemes: ['https']
         }
       })
