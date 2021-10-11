@@ -1,30 +1,3 @@
-# mtim extension
-chrome用の拡張機能です。
-名前を省略しているので適宜読み替えてください。
-拡張機能ストアへは申請中です。
-使用は自己責任でお願いします。
-
-## Install
-以下の手順でインストールできますが、chromeを起動する度に読み込み直す必要があります。
-
-1. githubからソースコードを入手する(下記コマンド参照)
-2. [拡張機能設定](chrome://extensions/)(chrome://extensions/)へアクセス
-3. パッケージ化されていない拡張機能を読み込む
-4. 1で入手したmtimを指定
-
-``` sh:githubからのダウンロード
-git clone https://github.com/9rq/mtim_extension.git
-```
-
-
-## Usage
-#### 1.自動入力
-打刻確認ページの(勤務|休憩)時間を自動で入力します。
-入力内容は固定(9-12-12-13-13-18)です。
-自動入力したい日の日付をクリックしてください。
-
-
-
 ## Todo
     - 指定時刻にmtimを起動
     - 自動打刻
@@ -74,6 +47,6 @@ git clone https://github.com/9rq/mtim_extension.git
         - callbackを指定して受け取ることはできている
         - loadLocalStorage関数の戻り値が上手く行かない
 
-    3. ~~puchClockでpopupが正常に動作しない~~
+    3. ~~puchClockでpopupが正常に動作しない~~ 
         - backgroundでpopupのアクセスに制限をかけることで対応
 
