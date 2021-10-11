@@ -6,26 +6,26 @@
     "version": "1.2",
 
     "background": {
-        "scripts": [ "background.js" ],
+        "scripts": [ "src/background.js" ],
         "persistent": true
     },
 
     "content_scripts": [
         {
-            "js": [ "punchClock_mod.js" ],
+            "js": [ "src/punchClock_mod.js" ],
             "matches": [ "https://whm.accenture.com/mytim/secure/punchClock" ]
         },
         {
-            "js": ["confirm_mod.js"],
+            "js": ["src/confirm_mod.js"],
             "matches": [ "https://whm.accenture.com/mytim/secure/punchClock/confirm"]
         }
     ],
     "page_action": {
         "browser_style": true,
         "default_title": "setting",
-        "default_popup": "popup.html"
+        "default_popup": "src/popup/popup.html"
     },
     "permissions": [
-    "storage", "declarativeContent", "tabs"
+    "declarativeContent", "tabs"
     ]
 }
