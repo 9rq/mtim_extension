@@ -32,6 +32,7 @@ git clone https://github.com/9rq/mtim_extension.git
 [打刻確認](whm.accenture.com/mytim/secure/punchClock/confirm)ページにて拡張機能アイコンをクリックすることで、設定画面を表示できます。
 設定画面では、自動入力の内容を変更することができます。
 addボタンで追加、×ボタンで削除ができます。変更を反映させるためにはsaveボタンを押してください。
+<img src="https://github.com/9rq/mtim_extension/blob/main/images/example0.png">
 
 ## Log
 #### v1.1
