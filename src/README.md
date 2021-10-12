@@ -1,4 +1,5 @@
 ## Todo
+
     - 指定時刻にmtimを起動
     - 自動打刻
     - 自動入力のデフォルト値の設定
@@ -6,6 +7,7 @@
     - 削除ボタン
 
 ## Log
+
     1. mtim内に時計を表示
         - 秒数まで表示して時間が切り替わるまでをわかりやすくする
         - DOM操作により、ページ内に時計を追加
@@ -39,6 +41,7 @@
         - popupには保持せず、content scriptへリクエスト
 
 ## Issues
+
     1. storageが使えない
         - DLP softwareが原因の可能性
         - [stack overflow](https://stackoverflow.com/questions/65330640/chrome-extension-chrome-storage-calls-fail-due-to-io-error-000001-dbtmp-c)
