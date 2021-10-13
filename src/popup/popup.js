@@ -58,6 +58,7 @@ function del(element){
     parent_element.remove();
 }
 
+// append input:time box to table
 function append(val){
     var newTr = document.createElement('tr');
     var newInput = document.createElement('input');
@@ -77,15 +78,14 @@ function append(val){
     });
 }
 
-// add blank box
+
 add_button.addEventListener('click', e=>{
     append('');
 });
-// save
 save_button.addEventListener('click', save);
 
 
-// show times
+// show popup when extension button is clicked
 loadLocalStorage().then((times)=>{
     for (let i =0; i < times.length; i++){
         append(times[i]);
