@@ -20,6 +20,7 @@ function loadLocalStorage(){
     }
 }
 
+// input time automatically
 function handler(i){
     let times = loadLocalStorage();
     for (let j=0; j < times.length && j < 12; j++){
@@ -27,6 +28,7 @@ function handler(i){
     }
 }
 
+// assign listener to each date cell
 Array.from(indices).map((m,i)=>{
     m.addEventListener('click',()=>{
         handler(i);
@@ -34,6 +36,7 @@ Array.from(indices).map((m,i)=>{
 });
 
 
+// add message listener
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     switch (request.type){
         case "save":
