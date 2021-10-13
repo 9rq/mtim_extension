@@ -38,15 +38,31 @@
 8. メッセージングによるlocalStorageの共有
     - popupには保持せず、content scriptへリクエスト
 
+9. Issue#2を解決
+    - chromeとfirefoxでメッセージの受け取り方法が違うことが原因
+    - callbackを適切に指定
+
+10. Issue#3を解決
+    - listenerがないページでもpopupが開けてしまう
+    - popupを開くにはcontent scriptとのやりとりが必要なため、popupを開けるページを制限
+
+11. Issue#4を解決
+    - エラー発生を検知し、自動でreloadをすることでlistenerを読み込ませる
+
 ## Issues
 1. storageが使えない
     - DLP softwareが原因の可能性
     - [stack overflow](https://stackoverflow.com/questions/65330640/chrome-extension-chrome-storage-calls-fail-due-to-io-error-000001-dbtmp-c)
 
-2. Log#8 loadリクエストが動かない
+2. ~~Log#8 loadリクエストが動かない~~
     - callbackを指定して受け取ることはできている
     - loadLocalStorage関数の戻り値が上手く行かない
+    - Log#9で解決
 
 3. ~~puchClockでpopupが正常に動作しない~~
     - backgroundでpopupのアクセスに制限をかけることで対応
+    - Log#10で解決
 
+4. ~~v1.2 update時にエラーが発生する~~
+    - mtimを開いたままupdateし、popupを開くと発生
+    - 新たに追加したlistenerが準備される前にメッセージが送られることが原因
