@@ -16,8 +16,16 @@ async function loadLocalStorage(){
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs)=>{
         chrome.tabs.sendMessage(tabs[0].id,{"type": "load"},
         (response)=>{
+            console.log('checking for error');
+            let lastError = chrome.runtime.lastError;
+            if (lastError) {
+                console.log(lastError.message);
+                chrome.tabs.reload(tabs[0].id);
+                window.close();
+            }
             let times = ['09:00', '12:00', '12:00', '13:00', '13:00', '18:00'];
-            if (response.times !== null){
+            console.log(response);
+            if (response && response.times !== null){
                 times = response.times;
             }
             window.localStorage.setItem('times', times.toString());
