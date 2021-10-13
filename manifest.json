@@ -3,7 +3,7 @@
 
     "name": "mtim extension",
     "description": "for mtim",
-    "version": "1.2",
+    "version": "1.2.1",
 
     "background": {
         "scripts": [ "src/background.js" ],
@@ -17,7 +17,7 @@
         },
         {
             "js": ["src/confirm_mod.js"],
-            "matches": [ "https://whm.accenture.com/mytim/secure/punchClock/confirm", "https://developer.mozilla.org/*"]
+            "matches": [ "https://whm.accenture.com/mytim/secure/punchClock/confirm"]
         }
     ],
     "page_action": {

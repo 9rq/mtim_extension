@@ -1,7 +1,7 @@
-//const table = document.getElementById('punchclocktable');
-//const tbody = table.getElementsByTagName('tbody').item(0);
-//const lines = tbody.getElementsByTagName('tr');
-//const indices = document.querySelectorAll('.celda_encabezado_general');
+const table = document.getElementById('punchclocktable');
+const tbody = table.getElementsByTagName('tbody').item(0);
+const lines = tbody.getElementsByTagName('tr');
+const indices = document.querySelectorAll('.celda_encabezado_general');
 
 
 function saveLocalStorage(times){
@@ -27,11 +27,11 @@ function handler(i){
     }
 }
 
-//Array.from(indices).map((m,i)=>{
-//    m.addEventListener('click',()=>{
-//        handler(i);
-//    });
-//});
+Array.from(indices).map((m,i)=>{
+    m.addEventListener('click',()=>{
+        handler(i);
+    });
+});
 
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
