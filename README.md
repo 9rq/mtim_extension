@@ -34,10 +34,13 @@ git clone https://github.com/9rq/mtim_extension.git
 addボタンで追加、×ボタンで削除ができます。変更を反映させるためにはsaveボタンを押してください。
 <img src="https://github.com/9rq/mtim_extension/blob/main/images/example0.png">
 
-## Log
+## History
 #### v1.1
 自動入力機能の実装
 #### v1.2
 設定画面の追加、入力内容が編集可能に
 <br>
-初期化エラー発生中
+初期化エラー発生
+
+##### v1.2.1
+初期化エラーの解消
