@@ -4,25 +4,29 @@ const lines = tbody.getElementsByTagName('tr');
 const indices = document.querySelectorAll('.celda_encabezado_general');
 
 
-function saveLocalStorage(times){
-    window.localStorage.setItem('times',times.toString());
+function saveLocalStorage(key,value){
+    window.localStorage.setItem(key,value);
 }
 
-function loadLocalStorage(){
-    let times = window.localStorage.getItem('times');
-    if (times !== null){
-        return times.split(',');
+function loadLocalStorage(key, default_value){
+    let item = window.localStorage.getItem(key);
+    if (item !== null){
+        return item;
     }else{
         console.log('init localStorage');
-        times = ['09:00', '12:00', '12:00', '13:00', '13:00', '18:00'];
-        saveLocalStorage(times);
-        return times;
+        saveLocalStorage(key, default_value);
+        return default_value;
     }
+}
+
+function getTimes(){
+    let times = loadLocalStorage('times', ['09:00', '12:00', '12:00', '13:00', '13:00', '18:00'].toString());
+    return times.split(',');
 }
 
 // input time automatically
 function handler(i){
-    let times = loadLocalStorage();
+    let times = getTimes();
     for (let j=0; j < times.length && j < 12; j++){
         lines.item(j).getElementsByTagName('input').item(i).setAttribute('value', times[j]);
     }
@@ -40,11 +44,16 @@ Array.from(indices).map((m,i)=>{
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     switch (request.type){
         case "save":
-            saveLocalStorage(request.times);
+            console.log(request);
+            saveLocalStorage('times',request.times.toString());
+            saveLocalStorage('random_rest', request.random_rest);
+            saveLocalStorage('random_work', request.random_work);
             return false;
         case "load":
-            let times = loadLocalStorage();
-            sendResponse({"times": times});
+            let times = getTimes();
+            let random_rest = loadLocalStorage('random_rest', false);
+            let random_work = loadLocalStorage('random_work', false);
+            sendResponse({"times": times, "random_rest": random_rest, "random_work": random_work});
             return true;
     }
 });

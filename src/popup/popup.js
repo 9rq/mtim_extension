@@ -1,13 +1,15 @@
 const table = document.getElementById('setting_table');
 const add_button = document.getElementById('add_button');
 const save_button = document.getElementById('save_button');
+const random_rest_box = document.getElementById('random_rest');
+const random_work_box = document.getElementById('random_work');
 
 const sleep = ms => new Promise(res => setTimeout(res, ms));
 
 // save to content script
-function saveLocalStorage(times){
+function saveLocalStorage(times, random_rest, random_work){
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs)=>{
-        chrome.tabs.sendMessage(tabs[0].id,{"times": times, "type": "save"});
+        chrome.tabs.sendMessage(tabs[0].id,{"times": times, "type": "save", "random_rest": random_rest, "random_work": random_work});
     });
 }
 
@@ -24,17 +26,34 @@ async function loadLocalStorage(){
                 window.close();
             }
             let times = ['09:00', '12:00', '12:00', '13:00', '13:00', '18:00'];
+            let random_rest = false;
+            let random_work = false;
+
             console.log(response);
             if (response && response.times !== null){
                 times = response.times;
             }
+            if (response && response.random_rest !== null){
+                random_rest = response.random_rest;
+            }
+            if (response && response.random_work !== null){
+                random_work = response.random_work;
+            }
             window.localStorage.setItem('times', times.toString());
+            window.localStorage.setItem('random_rest', random_rest);
+            window.localStorage.setItem('random_work', random_work);
         });
     });
     // compromise plan
     // wait till response
     await sleep(200);
-    return window.localStorage.getItem('times').split(',');
+    let response = {
+        "times":window.localStorage.getItem('times').split(','),
+        "random_rest":window.localStorage.getItem('random_rest'),
+        "random_work":window.localStorage.getItem('random_work')
+    };
+    console.log(response);
+    return response;
 }
 
 // save button
@@ -45,7 +64,10 @@ function save(){
     for (let i = 0; i< time_elements.length;i++){
         times.push(time_elements[i].value);
     }
-    saveLocalStorage(times);
+
+    let random_rest = random_rest_box.checked;
+    let random_work = random_work_box.checked;
+    saveLocalStorage(times, random_rest, random_work);
     window.close();
 }
 
@@ -86,8 +108,15 @@ save_button.addEventListener('click', save);
 
 
 // show popup when extension button is clicked
-loadLocalStorage().then((times)=>{
+loadLocalStorage().then((response)=>{
+    let times = response.times;
     for (let i =0; i < times.length; i++){
         append(times[i]);
     }
+    console.log(response);
+    console.log('called');
+    let random_rest = response.random_rest === 'true';
+    let random_work = response.random_work === 'true';
+    random_rest_box.checked = random_rest;
+    random_work_box.checked = random_work;
 });

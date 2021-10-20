@@ -1,19 +1,23 @@
 html, body {
-  width: 120px;
+  width: 125px;
+}
+
+.checkbox{
+  width: 10px;
 }
 
 .hidden {
   display: none;
 }
 
-.button {
-  margin: 3% auto;
-  padding: 4px;
+input.button {
   text-align: center;
   font-size: 1.5em;
   cursor: pointer;
+  width: 60px;
 }
 
-input{
+input.text{
   width: 75px;
 }
+
