@@ -24,9 +24,37 @@ function getTimes(){
     return times.split(',');
 }
 
+// min以上max未満
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
+
+function calcTimeDiff(time, delta){
+    let date = new Date();
+    let time = time.split(':');
+    date.setHours(Number(time[0]), Number(time[1]) + delta);
+    return date.getHours() + ':' + date.getMinutes();
+}
+
 // input time automatically
 function handler(i){
     let times = getTimes();
+    // randomise rest time
+    if loadLocalStorage('random_rest', false){
+        let diff = getRandomInt(-5, 6);
+        times[1] = calcTimeDiff(times[1], diff);
+        times[2] = calcTimeDiff(times[1], diff);
+        times[3] = calcTimeDiff(times[1], diff);
+        times[4] = calcTimeDiff(times[1], diff);
+    }
+    // randomise work time
+    if loadLocalStorage('random_work', false){
+        let diff = getRandomInt(-5, 6);
+        times[0] = calcTimeDiff(times[1], diff);
+        times[5] = calcTimeDiff(times[1], diff);
+    }
     for (let j=0; j < times.length && j < 12; j++){
         lines.item(j).getElementsByTagName('input').item(i).setAttribute('value', times[j]);
     }
