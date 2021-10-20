@@ -34,6 +34,8 @@ git clone https://github.com/9rq/mtim_extension.git
 addボタンで追加、×ボタンで削除ができます。変更を反映させるためにはsaveボタンを押してください。
 <img src="https://github.com/9rq/mtim_extension/blob/main/images/example0.png">
 
+設定画面のチェックボックスをオンにすると、±5分の範囲で時間をずらした入力ができます。
+
 ## History
 #### v1.1
 自動入力機能の実装
@@ -44,3 +46,8 @@ addボタンで追加、×ボタンで削除ができます。変更を反映さ
 
 ##### v1.2.1
 初期化エラーの解消
+
+#### v1.3
+ランダム要素の追加
+<br>
+設定メニューにチェックボックスを追加
