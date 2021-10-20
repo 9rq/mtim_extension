@@ -26,6 +26,6 @@
         "default_popup": "src/popup/popup.html"
     },
     "permissions": [
-    "declarativeContent", "tabs"
+    "declarativeContent", "tabs", "contextMenus"
     ]
 }
