@@ -46,6 +46,12 @@
 11. Issue#4を解決
     - エラー発生を検知し、自動でreloadをすることでlistenerを読み込ませる
 
+12. contextMenuにmtimへのリンクを追加
+    - mtimへのアクセスを楽に
+
+13. random要素の追加
+    - ±5分の幅でランダムに時間をずらす設定を追加
+
 ## Issues
 1. storageが使えない
     - DLP softwareが原因の可能性
