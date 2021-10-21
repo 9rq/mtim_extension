@@ -36,6 +36,10 @@ addボタンで追加、×ボタンで削除ができます。変更を反映さ
 
 設定画面のチェックボックスをオンにすると、±5分の範囲で時間をずらした入力ができます。
 
+#### 拡張機能アイコン
+mtim以外のページでアイコンをクリックすると、mtimを新規タブで開くことができるようになりました。
+<img src="https://github.com/9rq/mtim_extension/blob/main/images/example1.png">
+
 ## History
 #### v1.1
 自動入力機能の実装
